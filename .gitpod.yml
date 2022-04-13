@@ -1,12 +1,13 @@
 tasks:
   - init: |
-      python -m pip install --upgrade pip
+      python -m venv venv
+      source venv/bin/activate
+      python -m pip install --upgrade pip wheel setuptools
       python -m pip install Django
       python manage.py migrate
-      which python
     command: |
+      source venv/bin/activate
       python manage.py runserver
-      which python
   
 ports:
   - port: 8000
